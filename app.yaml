@@ -21,4 +21,9 @@ libraries:
   version: latest
 - name: jinja2
   version: latest
+  libraries:
+- name: webpy
+  version: "0.36"
+- name: lxml
+  version: "2.3.4"
 # [END libraries]
