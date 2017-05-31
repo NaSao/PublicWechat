@@ -1,0 +1,5 @@
+cherrypy
+bottle
+requests
+six
+werobot
