@@ -1,22 +1,12 @@
-import webapp2
+import werobot
 
+robot = werobot.WeRoBot(token='tokenhere')
 
-class MainPage(webapp2.RequestHandler):
-    allowed_app_ids = [
-        'other-app-id',
-        'other-app-id-2'
-    ]
+@robot.handler
+def hello(message):
+    return 'Hello World!'
 
-    def get(self):
-        incoming_app_id = self.request.headers.get(
-            'X-Appengine-Inbound-Appid', None)
-
-        if incoming_app_id not in self.allowed_app_ids:
-            self.abort(403)
-
-        self.response.write('This is a protected page.')
-
-
-app = webapp2.WSGIApplication([
-    ('/', MainPage)
-], debug=True)
+# ÈÃ·þÎñÆ÷¼àÌýÔÚ 0.0.0.0:80
+robot.config['HOST'] = '0.0.0.0'
+robot.config['PORT'] = 80
+robot.run()
